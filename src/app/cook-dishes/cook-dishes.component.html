@@ -1,0 +1,25 @@
+<body>
+<div class="col-8 offset-2">
+  <div class="col-4 offset-4 title">Let's Cook!</div>
+  <div class="row">
+    <div style="width: 50%">
+      <h4 style="text-align: center; margin-bottom: 25px">Please choose ingredients.</h4>
+      <div *ngFor="let ingredient of ingredients; let i = index" style="display: inline-block">
+        <div style="width: 150px"><input type="checkbox" data-md-icheck (change)="toggleIngredient($event, i)"/>
+          <span>{{ingredient.name}}</span></div>
+      </div>
+    </div>
+    <div style="width: 50%; text-align: center">
+      <h4 style="text-align: center; margin-bottom: 25px">Ingredients basket</h4>
+      <div *ngFor="let ingredient of ingredients" style="display: inline-block">
+        <div style="width: 150px; background-color: dodgerblue; margin: 5px" *ngIf="ingredient.checked">{{ingredient.name}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 offset-3" style="text-align: center; margin-top: 25px">
+    <button class="btn-primary" (click)="submitIgdt()">Submit</button>
+    <button class="btn-primary" (click)="reset()">Reset</button>
+    <h4 *ngIf="submit" style="margin-top: 25px">You can make {{dish}}</h4>
+  </div>
+</div>
+</body>
